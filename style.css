@@ -1,20 +1,22 @@
 :root {
-  --bg: #fafaf9;
-  --surface: #ffffff;
-  --text: #1c1917;
-  --muted: #57534e;
-  --border: #e7e5e4;
-  --accent: #2563eb;
+  --bg: #f6ecd4;
+  --surface: #efe1bd;
+  --text: #2b1d0e;
+  --muted: #6b5a3e;
+  --border: #cdb670;
+  --accent: #7a1620;
+  --gold: #b8892b;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0c0a09;
-    --surface: #1c1917;
-    --text: #f5f5f4;
-    --muted: #a8a29e;
-    --border: #292524;
-    --accent: #60a5fa;
+    --bg: #120b22;
+    --surface: #1c1330;
+    --text: #f0e6c8;
+    --muted: #b9a97e;
+    --border: #3a2a55;
+    --accent: #e0b84a;
+    --gold: #e0b84a;
   }
 }
 
@@ -22,7 +24,8 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
   line-height: 1.6;
   background: var(--bg);
   color: var(--text);
@@ -36,36 +39,180 @@ body {
 
 a { color: var(--accent); }
 
+h1, h2, h3, nav a, .headline, .tags li {
+  font-family: "Cinzel", serif;
+}
+
+/* ---------- Hero + castle scene ---------- */
+
 .hero {
-  padding: 72px 0 40px;
+  position: relative;
+  overflow: hidden;
+  min-height: 460px;
+  padding: 130px 0 56px;
+  background: #05030f;
   border-bottom: 1px solid var(--border);
 }
 
+.castle-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  line-height: 0;
+}
+
+.castle-scene svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.stars circle {
+  fill: #ffffff;
+  animation: twinkle 2.6s ease-in-out infinite;
+}
+
+.moon-glow {
+  animation: moonPulse 6s ease-in-out infinite;
+  transform-origin: 860px 55px;
+}
+
+.window {
+  fill: #ffd873;
+  opacity: 0.9;
+  animation-name: flicker;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.flag {
+  transform-box: fill-box;
+  transform-origin: 0% 50%;
+  animation: flagWave 2.2s ease-in-out infinite;
+}
+
+.bat {
+  transform-box: view-box;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.bat path { fill: #0b0714; }
+
+.bat1 { animation-name: batFly1; animation-duration: 16s; animation-delay: 1s; }
+.bat2 { animation-name: batFly2; animation-duration: 21s; animation-delay: 6s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+@keyframes moonPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 54%, 56%, 100% { opacity: 0.9; }
+  20%, 22%, 55% { opacity: 0.35; }
+}
+
+@keyframes flagWave {
+  0%, 100% { transform: skewY(6deg) scaleX(1); }
+  50% { transform: skewY(-6deg) scaleX(0.96); }
+}
+
+@keyframes batFly1 {
+  0% { transform: translate(-40px, 90px) scale(0.8); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translate(1080px, 40px) scale(0.8); opacity: 0; }
+}
+
+@keyframes batFly2 {
+  0% { transform: translate(-40px, 150px) scale(0.6); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translate(1080px, 190px) scale(0.6); opacity: 0; }
+}
+
+/* ---------- Profile picture ---------- */
+
+.profile-pic {
+  width: 148px;
+  height: 148px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 32% 28%, #3a2a1a, #140c20);
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 0 6px rgba(224, 184, 74, 0.15), 0 0 24px rgba(224, 184, 74, 0.35);
+}
+
+.profile-pic-fallback {
+  font-size: 3.4rem;
+  filter: drop-shadow(0 0 6px rgba(224, 184, 74, 0.5));
+}
+
+.profile-pic img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Hero content ---------- */
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
 .hero h1 {
+  font-family: "Cinzel Decorative", "Cinzel", serif;
   font-size: clamp(2rem, 6vw, 3rem);
   margin: 0;
   line-height: 1.1;
+  color: #f4ecd8;
+  text-shadow: 0 0 18px rgba(224, 184, 74, 0.45);
 }
 
 .headline {
-  color: var(--muted);
-  font-size: 1.15rem;
-  margin: 8px 0 24px;
+  color: var(--gold, #d9b84a);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  margin: 10px 0 26px;
 }
 
 nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  justify-content: center;
+  gap: 20px;
 }
 
 nav a {
-  color: var(--muted);
+  color: #e7d9b3;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  transition: color 0.15s, text-shadow 0.15s;
 }
 
-nav a:hover { color: var(--accent); }
+nav a:hover {
+  color: #f1cf6b;
+  text-shadow: 0 0 10px rgba(241, 207, 107, 0.6);
+}
+
+/* ---------- Sections ---------- */
 
 section {
   padding: 40px 0 8px;
@@ -73,8 +220,22 @@ section {
 }
 
 h2 {
-  font-size: 1.4rem;
-  margin: 0 0 16px;
+  position: relative;
+  font-size: 1.45rem;
+  letter-spacing: 0.4px;
+  margin: 0 0 22px;
+  padding-bottom: 12px;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 2px;
 }
 
 h3 {
@@ -108,10 +269,15 @@ h3 {
   border-radius: 10px;
   color: inherit;
   text-decoration: none;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
 }
 
-.card:hover { border-color: var(--accent); }
+.card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 8px 20px rgba(224, 184, 74, 0.2);
+  transform: translateY(-2px);
+}
+
 .card p { margin: 6px 0 0; color: var(--muted); }
 
 .tags, .links {
@@ -124,15 +290,24 @@ h3 {
 }
 
 .tags li {
-  padding: 4px 12px;
+  padding: 4px 14px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
 }
 
 footer {
   padding: 48px 16px;
   color: var(--muted);
   font-size: 0.9rem;
+  text-align: center;
+}
+
+.footer-note {
+  font-family: "Cinzel", serif;
+  font-style: italic;
+  color: var(--gold);
+  margin-top: 4px;
 }
