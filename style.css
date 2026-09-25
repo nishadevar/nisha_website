@@ -43,127 +43,19 @@ h1, h2, h3, nav a, .headline, .tags li {
   font-family: "Cinzel", serif;
 }
 
-/* ---------- Hero + castle scene ---------- */
+/* ---------- Hero ---------- */
+/* Header photo: Neuschwanstein Castle by Thomas Wolf, www.foto-tw.de (CC BY-SA 3.0 DE) — credited in footer */
 
 .hero {
   position: relative;
-  overflow: hidden;
   min-height: 460px;
-  padding: 130px 0 56px;
-  background: #05030f;
-  border-bottom: 1px solid var(--border);
-}
-
-.castle-scene {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  line-height: 0;
-}
-
-.castle-scene svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.stars circle {
-  fill: #ffffff;
-  animation: twinkle 2.6s ease-in-out infinite;
-}
-
-.moon-glow {
-  animation: moonPulse 6s ease-in-out infinite;
-  transform-origin: 860px 55px;
-}
-
-.window {
-  fill: #ffd873;
-  opacity: 0.9;
-  animation-name: flicker;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
-
-.flag {
-  transform-box: fill-box;
-  transform-origin: 0% 50%;
-  animation: flagWave 2.2s ease-in-out infinite;
-}
-
-.bat {
-  transform-box: view-box;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-.bat path { fill: #0b0714; }
-
-.bat1 { animation-name: batFly1; animation-duration: 16s; animation-delay: 1s; }
-.bat2 { animation-name: batFly2; animation-duration: 21s; animation-delay: 6s; }
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 1; }
-}
-
-@keyframes moonPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.08); opacity: 0.85; }
-}
-
-@keyframes flicker {
-  0%, 19%, 21%, 23%, 54%, 56%, 100% { opacity: 0.9; }
-  20%, 22%, 55% { opacity: 0.35; }
-}
-
-@keyframes flagWave {
-  0%, 100% { transform: skewY(6deg) scaleX(1); }
-  50% { transform: skewY(-6deg) scaleX(0.96); }
-}
-
-@keyframes batFly1 {
-  0% { transform: translate(-40px, 90px) scale(0.8); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translate(1080px, 40px) scale(0.8); opacity: 0; }
-}
-
-@keyframes batFly2 {
-  0% { transform: translate(-40px, 150px) scale(0.6); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translate(1080px, 190px) scale(0.6); opacity: 0; }
-}
-
-/* ---------- Profile picture ---------- */
-
-.profile-pic {
-  width: 148px;
-  height: 148px;
-  margin: 0 auto 22px;
-  border-radius: 50%;
-  position: relative;
-  overflow: hidden;
+  padding: 90px 0 48px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at 32% 28%, #3a2a1a, #140c20);
-  border: 3px solid var(--gold);
-  box-shadow: 0 0 0 6px rgba(224, 184, 74, 0.15), 0 0 24px rgba(224, 184, 74, 0.35);
-}
-
-.profile-pic-fallback {
-  font-size: 3.4rem;
-  filter: drop-shadow(0 0 6px rgba(224, 184, 74, 0.5));
-}
-
-.profile-pic img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  align-items: flex-end;
+  background:
+    linear-gradient(180deg, rgba(5, 3, 15, 0.45) 0%, rgba(5, 3, 15, 0.55) 45%, rgba(5, 3, 15, 0.92) 100%),
+    url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Schloss_Neuschwanstein_2013.jpg/1280px-Schloss_Neuschwanstein_2013.jpg") center 30% / cover no-repeat;
+  border-bottom: 1px solid var(--border);
 }
 
 /* ---------- Hero content ---------- */
@@ -171,6 +63,7 @@ h1, h2, h3, nav a, .headline, .tags li {
 .hero-content {
   position: relative;
   z-index: 1;
+  width: 100%;
   text-align: center;
 }
 
@@ -311,3 +204,11 @@ footer {
   color: var(--gold);
   margin-top: 4px;
 }
+
+.photo-credit {
+  font-size: 0.78rem;
+  margin-top: 12px;
+  opacity: 0.75;
+}
+
+.photo-credit a { color: var(--muted); }
