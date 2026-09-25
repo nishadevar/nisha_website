@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name</title>
+  <meta name="description" content="Personal website of Your Name">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <!-- EDIT: your name and one-line headline -->
+      <h1>Your Name</h1>
+      <p class="headline">Your Role · Your City</p>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="about">
+      <h2>About</h2>
+      <!-- EDIT: a few lines about you -->
+      <p>Write two or three sentences about who you are, what you do, and what you're interested in.</p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <!-- EDIT: copy an <article> block for each job -->
+      <article class="item">
+        <div class="item-head">
+          <h3>Job Title — Company</h3>
+          <span class="date">2024 – Present</span>
+        </div>
+        <p>What you did and what you achieved.</p>
+      </article>
+      <article class="item">
+        <div class="item-head">
+          <h3>Job Title — Company</h3>
+          <span class="date">2021 – 2024</span>
+        </div>
+        <p>What you did and what you achieved.</p>
+      </article>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <!-- EDIT: copy a <a class="card"> block for each project -->
+      <div class="cards">
+        <a class="card" href="#">
+          <h3>Project One</h3>
+          <p>A short description of the project.</p>
+        </a>
+        <a class="card" href="#">
+          <h3>Project Two</h3>
+          <p>A short description of the project.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <!-- EDIT: one <li> per skill -->
+      <ul class="tags">
+        <li>Skill one</li>
+        <li>Skill two</li>
+        <li>Skill three</li>
+        <li>Skill four</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <!-- EDIT: your links -->
+      <ul class="links">
+        <li><a href="mailto:you@example.com">you@example.com</a></li>
+        <li><a href="https://www.linkedin.com/in/your-profile">LinkedIn</a></li>
+        <li><a href="https://github.com/nishadevar">GitHub</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>© <span id="year"></span> Your Name</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

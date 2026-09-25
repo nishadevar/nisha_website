@@ -1,0 +1,138 @@
+:root {
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #1c1917;
+  --muted: #57534e;
+  --border: #e7e5e4;
+  --accent: #2563eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0a09;
+    --surface: #1c1917;
+    --text: #f5f5f4;
+    --muted: #a8a29e;
+    --border: #292524;
+    --accent: #60a5fa;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+a { color: var(--accent); }
+
+.hero {
+  padding: 72px 0 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.headline {
+  color: var(--muted);
+  font-size: 1.15rem;
+  margin: 8px 0 24px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover { color: var(--accent); }
+
+section {
+  padding: 40px 0 8px;
+  scroll-margin-top: 16px;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin: 0 0 16px;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.item { margin-bottom: 24px; }
+.item p { margin: 4px 0 0; color: var(--muted); }
+
+.item-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+}
+
+.date { color: var(--muted); font-size: 0.9rem; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: block;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+.card:hover { border-color: var(--accent); }
+.card p { margin: 6px 0 0; color: var(--muted); }
+
+.tags, .links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.tags li {
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 0.9rem;
+}
+
+footer {
+  padding: 48px 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
